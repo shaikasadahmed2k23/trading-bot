@@ -1,0 +1,26 @@
+2026-06-02 20:08:33 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:08:33 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:08:33 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:08:49 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:08:49 | INFO     | trading_bopython cli.py accountt.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:08:49 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:09:03 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:09:03 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:09:03 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:18 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:18 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:18 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:18 | INFO     | trading_bot.cli | CLI place command → symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None stop=None
+2026-06-02 20:26:26 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:26 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:26 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:26:26 | INFO     | trading_bot.cli | CLI place command → symbol=BTCUSDT side=SELL type=LIMIT qty=0.001 price=120000.0 stop=None
+2026-06-02 20:28:26 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:28:26 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:28:26 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:29:11 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:29:11 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:29:11 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:30:01 | INFO     | trading_bot.client | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:30:01 | INFO     | trading_bot.orders | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
+2026-06-02 20:30:01 | INFO     | trading_bot.cli | Logger initialised — writing to: E:\trading_bot\logs\trading_bot_20260602.log
