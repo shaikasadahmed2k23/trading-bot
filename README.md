@@ -47,7 +47,7 @@ trading_bot/
 ### 1. Clone / Download the project
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/trading-bot.git
+git clone https://github.com/shaikasadahmed2k23/trading-bot
 cd trading_bot
 ```
 
