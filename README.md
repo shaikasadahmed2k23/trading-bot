@@ -2,8 +2,16 @@
 
 A clean, modular Python trading bot that places **MARKET**, **LIMIT**, and **STOP_MARKET** orders on the Binance Futures Testnet (USDT-M Perpetual Futures).
 
+## ✨ Now with Web Frontend! 🌐
+
+Choose your interface:
+- **Web UI** — Modern, responsive web interface (NEW!)
+- **CLI** — Command-line with interactive mode (original)
+
 Built with:
-- **Typer** — modern CLI with guided interactive mode
+- **Flask API** — RESTful backend server
+- **Modern Web Frontend** — HTML5, CSS3, Vanilla JavaScript
+- **Typer** — CLI with guided interactive mode
 - **Requests** — direct REST calls to Binance API (no third-party Binance library)
 - **python-dotenv** — secure credential management via `.env`
 - Structured logging, input validation, and full error handling
@@ -14,6 +22,11 @@ Built with:
 
 ```
 trading_bot/
+├── api.py                   # Flask API server (NEW)
+├── frontend/                # Web interface (NEW)
+│   ├── index.html          # Main HTML page
+│   ├── styles.css          # Styling & layout
+│   └── app.js              # Frontend logic
 ├── bot/
 │   ├── __init__.py          # Package exports
 │   ├── client.py            # Binance REST client (signing, HTTP, error handling)
@@ -24,6 +37,7 @@ trading_bot/
 ├── cli.py                   # CLI entry point (Typer)
 ├── .env.example             # Credential template
 ├── requirements.txt
+├── FRONTEND_SETUP.md       # Web frontend guide (NEW)
 └── README.md
 ```
 
@@ -41,6 +55,7 @@ trading_bot/
   <img src="Screenshots/img4.png" width="45%" alt="Account Information">
 </p>
 
+---
 
 ## ⚙️ Setup Steps
 
@@ -92,12 +107,59 @@ BINANCE_API_SECRET=your_api_secret_here
 
 ---
 
-## 🚀 How to Run
+## 🚀 Quick Start
 
-### Command: `place` — Direct order via flags
+### Option 1: Web Interface (Recommended) 🌐
+
+**Terminal 1 — Start API Server:**
+```bash
+python api.py
+```
+
+**Terminal 2 — Serve Frontend:**
+```bash
+# Windows
+python -m http.server 8000 --directory frontend
+
+# macOS/Linux
+python3 -m http.server 8000 --directory frontend
+```
+
+**Open your browser:**
+```
+http://localhost:8000
+```
+
+✨ Modern, responsive trading interface with real-time status updates!
+
+### Option 2: Command Line (Original) 💻
 
 **MARKET order (BUY)**
 ```bash
+python cli.py place --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
+```
+
+**Interactive mode** (guided)
+```bash
+python cli.py interactive
+```
+
+---
+
+## 🌐 Web Frontend Features
+
+- **Order Placement** — MARKET, LIMIT, STOP_MARKET orders with validation
+- **Real-Time Status** — API health check with visual indicator
+- **Input Validation** — Clear error messages before submission
+- **Order Summary** — Review order details before execution
+- **Responsive Design** — Works on desktop, tablet, and mobile
+- **Modern UI** — Dark theme, smooth animations, intuitive layout
+
+[Detailed frontend setup → see FRONTEND_SETUP.md](FRONTEND_SETUP.md)
+
+---
+
+## 🚀 CLI Commands (Original)
 python cli.py place --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
 ```
 

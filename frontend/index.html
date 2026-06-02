@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Binance Futures Trading Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🤖 Binance Futures Trading Bot</h1>
+                <p class="subtitle">USDT-M Perpetual Futures | Testnet</p>
+            </div>
+            <div class="status-indicator">
+                <span id="statusDot" class="status-dot offline"></span>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Order Form -->
+            <section class="card">
+                <h2 class="card-title">📋 Place Order</h2>
+                <form id="orderForm" class="form">
+                    <!-- Symbol -->
+                    <div class="form-group">
+                        <label for="symbol">Symbol *</label>
+                        <input 
+                            type="text" 
+                            id="symbol" 
+                            name="symbol" 
+                            placeholder="e.g. BTCUSDT, ETHUSDT"
+                            required
+                            maxlength="20"
+                        >
+                        <small class="form-hint">Trading pair symbol</small>
+                    </div>
+
+                    <!-- Side (Buy/Sell) -->
+                    <div class="form-group">
+                        <label for="side">Side *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="side" value="BUY" required>
+                                <span class="radio-custom buy"></span>
+                                BUY
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="side" value="SELL" required>
+                                <span class="radio-custom sell"></span>
+                                SELL
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Type -->
+                    <div class="form-group">
+                        <label for="type">Order Type *</label>
+                        <select id="type" name="type" required onchange="handleOrderTypeChange()">
+                            <option value="">Select order type...</option>
+                            <option value="MARKET">Market (Instant execution)</option>
+                            <option value="LIMIT">Limit (At your price)</option>
+                            <option value="STOP_MARKET">Stop Market (Bonus)</option>
+                        </select>
+                        <small class="form-hint">Choose how to execute your order</small>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input 
+                            type="number" 
+                            id="quantity" 
+                            name="quantity" 
+                            placeholder="e.g. 0.001"
+                            step="0.00001"
+                            min="0"
+                            required
+                        >
+                        <small class="form-hint">Amount in base asset</small>
+                    </div>
+
+                    <!-- Price (for LIMIT) -->
+                    <div class="form-group" id="priceGroup" style="display: none;">
+                        <label for="price">Price *</label>
+                        <input 
+                            type="number" 
+                            id="price" 
+                            name="price" 
+                            placeholder="Your limit price"
+                            step="0.01"
+                            min="0"
+                        >
+                        <small class="form-hint">Required for LIMIT orders</small>
+                    </div>
+
+                    <!-- Stop Price (for STOP_MARKET) -->
+                    <div class="form-group" id="stopPriceGroup" style="display: none;">
+                        <label for="stopPrice">Stop Price *</label>
+                        <input 
+                            type="number" 
+                            id="stopPrice" 
+                            name="stopPrice" 
+                            placeholder="Trigger price"
+                            step="0.01"
+                            min="0"
+                        >
+                        <small class="form-hint">Price to trigger market order</small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">🚀</span>
+                        Place Order
+                    </button>
+                </form>
+            </section>
+
+            <!-- Order Summary -->
+            <section class="card" id="summarySection" style="display: none;">
+                <h2 class="card-title">📊 Order Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-label">Symbol</span>
+                        <span class="summary-value" id="summarySymbol">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Side</span>
+                        <span class="summary-value" id="summarySide">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Type</span>
+                        <span class="summary-value" id="summaryType">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Quantity</span>
+                        <span class="summary-value" id="summaryQuantity">-</span>
+                    </div>
+                    <div class="summary-item" id="summaryPriceItem" style="display: none;">
+                        <span class="summary-label">Price</span>
+                        <span class="summary-value" id="summaryPrice">-</span>
+                    </div>
+                    <div class="summary-item" id="summaryStopPriceItem" style="display: none;">
+                        <span class="summary-label">Stop Price</span>
+                        <span class="summary-value" id="summaryStopPrice">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Response Message -->
+            <section class="card" id="responseSection" style="display: none;">
+                <h2 class="card-title" id="responseTitle">✅ Success</h2>
+                <div id="responseMessage" class="response-message"></div>
+                <button class="btn btn-secondary" onclick="resetForm()">
+                    Place Another Order
+                </button>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Placing order...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Binance Futures Testnet Trading Bot | API Status: <span id="apiStatus">Checking...</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
