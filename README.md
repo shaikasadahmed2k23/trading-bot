@@ -32,13 +32,13 @@ trading_bot/
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/img1.png" width="45%" alt="CLI Help">
-  <img src="screenshots/img2.png" width="45%" alt="Interactive Mode">
+  <img src="Screenshots/img1.png" width="45%" alt="CLI Help">
+  <img src="Screenshots/img2.png" width="45%" alt="Interactive Mode">
 </p>
 
 <p align="center">
-  <img src="screenshots/img3.png" width="45%" alt="Market Order">
-  <img src="screenshots/img4.png" width="45%" alt="Account Information">
+  <img src="Screenshots/img3.png" width="45%" alt="Market Order">
+  <img src="Screenshots/img4.png" width="45%" alt="Account Information">
 </p>
 
 
